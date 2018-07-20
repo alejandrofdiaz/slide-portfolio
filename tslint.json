@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "no-console": {
+      "severity": "warning"
+    },
+    "semicolon": [true, "always"],
+    "quotemark": {
+      "options": ["single", "avoid-escape", "jsx-double"]
+    }
+  }
+}
