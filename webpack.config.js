@@ -7,10 +7,10 @@ const basePath = __dirname;
 module.exports = {
   mode: 'development',
   resolve: {
-    extensions: ['.js','.ts', '.tsx', '.css']
+    extensions: ['.js','.ts', '.tsx', '.css','.scss']
   },
   entry: {
-    app: './src/index.tsx'
+    app: './src/index.ts'
   },
   output: {
     path: path.join(basePath, 'dist'),
