@@ -10,7 +10,7 @@ module.exports = {
     extensions: ['.js','.ts', '.tsx', '.css','.scss']
   },
   entry: {
-    app: './src/index.ts'
+    app: './src/index.tsx'
   },
   output: {
     path: path.join(basePath, 'dist'),
