@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { h, app } from 'hyperapp';
+import { h, create } from 'virtual-dom';
 import 'swiper/dist/css/swiper.css';
 import './styles';
 
@@ -26,5 +26,8 @@ const SWIPER_CONF: SwiperOptions = {
   }
 };
 
+const TEST = <div>{'dsdasda'}</div>;
+
 const $Swiper: Swiper = new Swiper('#main', SWIPER_CONF);
 
+console.log(create(TEST));
