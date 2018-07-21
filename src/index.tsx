@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { h, create } from 'virtual-dom';
+import { h, create, diff, patch } from 'virtual-dom';
 import 'swiper/dist/css/swiper.css';
 import './styles';
 
@@ -26,8 +26,19 @@ const SWIPER_CONF: SwiperOptions = {
   }
 };
 
-const TEST = <div>{'dsdasda'}</div>;
+function consoleMe() {
+  console.log('233213');
+}
+
+const TEST = (
+  <button onclick={consoleMe} value="32131223">
+    {'dsdasda'}
+  </button>
+);
 
 const $Swiper: Swiper = new Swiper('#main', SWIPER_CONF);
+const _TEST = create(TEST);
 
-console.log(create(TEST));
+console.log(_TEST);
+
+document.body.appendChild(_TEST);
