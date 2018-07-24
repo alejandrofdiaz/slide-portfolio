@@ -1,4 +1,5 @@
 import Swiper from 'swiper';
+import Component from './utils/component';
 import { h, create, diff, patch } from 'virtual-dom';
 import 'swiper/dist/css/swiper.css';
 import './styles';
@@ -26,19 +27,28 @@ const SWIPER_CONF: SwiperOptions = {
   }
 };
 
-function consoleMe() {
-  console.log('233213');
+// const $Swiper: Swiper = new Swiper('#main', SWIPER_CONF);
+
+interface State {
+  value: string;
 }
 
-const TEST = (
-  <button onclick={consoleMe} value="32131223">
-    {'dsdasda'}
-  </button>
-);
+class Foo extends Component<State> {
+  constructor(entry: HTMLElement) {
+    super(entry);
+    this.state = {
+      value: 'test'
+    };
+  }
 
-const $Swiper: Swiper = new Swiper('#main', SWIPER_CONF);
-const _TEST = create(TEST);
+  changeValue() {
+    const foo = 'Funciona';
+    this.setState({ ...this.state, value: foo });
+  }
 
-console.log(_TEST);
+  render() {
+    return (<button onclick={this.changeValue.bind(this)}>{this.state.value}</button>);
+  }
+}
 
-document.body.appendChild(_TEST);
+new Foo(document.getElementById('main'));
